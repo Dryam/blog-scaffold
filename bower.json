@@ -1,0 +1,22 @@
+{
+    "name": "blog-scaffold",
+    "version": "0.1.0",
+    "authors": [
+        "Dryam <dryam.zen@gmail.com>"
+    ],
+    "description": "This is a single blog application on Polymer",
+    "main": "index.html",
+    "keywords": [
+        "blog",
+        "polymer",
+        "spa"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "bower_components"        
+    ],
+    "dependencies": {
+        "polymer": "Polymer/polymer#~0.5.5"
+    }
+}
