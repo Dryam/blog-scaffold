@@ -1,2 +1,4 @@
 # Bower components folder
 bower_components
+# vulcanize version of index.html
+build.html
