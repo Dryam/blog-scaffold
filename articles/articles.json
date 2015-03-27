@@ -1,0 +1,15 @@
+[{    
+    "categorys": [
+        "First category"
+    ],
+    "subCategorys": [
+        "Subcategory"
+    ]
+}, {    
+    "categorys": [
+        "Second category"
+    ],
+    "subCategorys": [
+        "Subcategory"
+    ]
+}]
