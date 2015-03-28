@@ -1,6 +1,6 @@
 {
   "name": "blog-scaffold",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [
     "Dryam <dryam.zen@gmail.com>"
   ],
@@ -23,6 +23,7 @@
     "core-menu": "Polymer/core-menu#~0.5.5",
     "core-item": "Polymer/core-item#~0.5.5",
     "core-icon-button": "Polymer/core-icon-button#~0.5.5",
-    "core-toolbar": "Polymer/core-toolbar#~0.5.5"
+    "core-toolbar": "Polymer/core-toolbar#~0.5.5",
+    "core-ajax": "Polymer/core-ajax#~0.5.5"
   }
 }

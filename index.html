@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Webcomponents</title>
-    <script src="bower_components/webcomponentsjs/webcomponents.js">
-    </script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
@@ -14,11 +13,13 @@
     <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+    
 </head>
 
-<body unresolved fullbleed>
+<body fullbleed>
     <template is="auto-binding" id="page-template">
-        <style>                        
+        <style>
             #core_header_panel {
                 background-color: rgb(255, 255, 255);
             }
@@ -27,26 +28,32 @@
                 color: rgb(255, 255, 255);
                 background-color: rgb(79, 125, 201);
             }
-                        
+        /*TODO: move styles from this file */
         </style>
         <core-scaffold>
             <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
                 <core-toolbar id="core_toolbar">sitename</core-toolbar>
-                <core-menu selected="0" selectedindex="0" id="core_menu">
-                    <core-submenu active icon="settings" label="Topics">
-                        <core-item label="Topic 1" horizontal center layout></core-item>
-                        <core-item label="Topic 2" horizontal center layout></core-item>
-                    </core-submenu>
-                    <core-submenu icon="settings" label="Favorites">
-                        <core-item label="Favorite 1" horizontal center layout></core-item>
-                        <core-item label="Favorite 2" horizontal center layout></core-item>
-                        <core-item label="Favorite 3" horizontal center layout></core-item>
-                    </core-submenu>
+                <core-menu valueattr="label" selected="{{routeCat}}" id="core_menu">
+
+                    <template repeat="{{category in categorys}}">
+                        <core-submenu label="{{category.name}}" valueattr="label" selected="{{routeSub}}">
+                            <template repeat="{{subcategory in  category.subcategorys}}">
+                                <core-item label="{{subcategory}}"></core-item>
+                            </template>
+                        </core-submenu>
+                    </template>
+
                 </core-menu>
             </core-header-panel>
-            <div id="div" tool>categoryName subategoryName</div>
+            <div tool>{{routeCat}}</div>
         </core-scaffold>
+        
     </template>
+
+    <core-ajax auto></core-ajax>     
+    <script src="default.js"></script>
+    
+
 </body>
 
 </html>
