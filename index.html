@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Webcomponents</title>
-    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js">
+    </script>
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
@@ -15,11 +16,11 @@
     <link rel="import" href="bower_components/core-menu/core-submenu.html">
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="bower_components/core-list/core-list.html">
-    
+
 </head>
 
 <body fullbleed>
-    <template is="auto-binding" id="page-template">
+    <template is="auto-binding" id="page-template" class="rock">
         <style>
             #core_header_panel {
                 background-color: rgb(255, 255, 255);
@@ -29,9 +30,9 @@
                 color: rgb(255, 255, 255);
                 background-color: rgb(79, 125, 201);
             }
-        /*TODO: move styles from this file */
+            /*TODO: move styles from this file */
         </style>
-        <core-scaffold>
+        <core-scaffold>        
             <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
                 <core-toolbar id="core_toolbar">sitename</core-toolbar>
                 <core-menu valueattr="label" selected="{{routeCat}}" id="core_menu">
@@ -47,13 +48,20 @@
                 </core-menu>
             </core-header-panel>
             <div tool>{{routeCat}}</div>
+            <div id="myContent">           
+                <core-list data="{{data}}" style="height: 300px;" id="core-list">                
+                    <template id="list-template">
+                        <div>{{index}} {{model.categorys}} {{model.subCategorys}} {{model.path}}</div>
+                    </template>
+                </core-list>
+            </div>
         </core-scaffold>
-        
-    </template>
 
-    <core-ajax auto></core-ajax>     
-    <script src="default.js"></script>
-    
+    </template>
+    <core-ajax auto></core-ajax>
+    <script src="default.js">
+    </script>
+
 
 </body>
 
