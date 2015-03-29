@@ -31,6 +31,13 @@
                 color: rgb(255, 255, 255);
                 background-color: rgb(79, 125, 201);
             }
+            #postsList .item{
+                 display: none;
+           }
+              #postsList .selected{
+                display: block;
+
+              }
             /*TODO: move styles from this file */
         </style>
         <core-scaffold>        
@@ -39,9 +46,9 @@
                 <core-menu valueattr="label" selected="{{routeCat}}" id="core_menu">
 
                     <template repeat="{{category in categorys}}">
-                        <core-submenu label="{{category.name}}" valueattr="label" selected="{{routeSub}}">
+                        <core-submenu label="{{category.name}}" valueattr="label" selected="{{routeSub}}" on-tap={{handleResponse}}>
                             <template repeat="{{subcategory in  category.subcategorys}}">
-                                <core-item label="{{subcategory}}"></core-item>
+                                <core-item on-tap={{handleResponse}} label="{{subcategory}}"></core-item>
                             </template>
                         </core-submenu>
                     </template>
@@ -49,16 +56,17 @@
                 </core-menu>
             </core-header-panel>
             <div tool>{{routeCat}}</div>
-            
+            <div id="postsList">
             <core-list data="{{data}}" style="height: 300px;" id="core-list" scrollTarget="{{myTarget}}">                
                     <template id="list-template">
-                        <div><span hidden>{{index}}</span> 
+                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">
+                        <span hidden>{{index}}</span> 
                         <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                         
                         <mark-down text="{{articlePrev}}"></mark-down>
                         </div>
                     </template>
                 </core-list>
-
+            </div>
             <div id="myContent">           
                 
             </div>

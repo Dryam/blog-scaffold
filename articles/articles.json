@@ -3,13 +3,16 @@
         "First category"
     ],
     "subCategorys": [
-        "Subcategory"
-    ]
-}, {    
+        "First Subcategory"
+    ],
+    "path" : "articles/article-test-1/preview.md"
+}, 
+{ 
     "categorys": [
         "Second category"
     ],
     "subCategorys": [
-        "Subcategory"
-    ]
+        "Second Subcategory"
+    ],
+    "path" : "articles/article-test-2/preview.md"
 }]
