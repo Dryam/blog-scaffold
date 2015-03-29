@@ -5,8 +5,9 @@
                 template.handleResponse = function(){
                     document.querySelector("core-list").updateSize();
                 }                                                                                                       
-                ajax.addEventListener("core-response", function(){
-                    console.log(document.querySelector("core-list"));                        
+                ajax.addEventListener("core-response", function(){                    
+                    
+                    
                     document.querySelector("core-list").data = ajax.response;                                        
                 })
                 

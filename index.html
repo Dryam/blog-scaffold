@@ -56,11 +56,10 @@
                 </core-menu>
             </core-header-panel>
             <div tool>{{routeCat}}</div>
-            <div id="postsList">
-            <core-list data="{{data}}" style="height: 300px;" id="core-list" scrollTarget="{{myTarget}}">                
+            <div id="postsList" fit>
+            <core-list data="{{data}}" style="height: 100%;" id="core-list" selectionEnabled="false">                
                     <template id="list-template">
-                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">
-                        <span hidden>{{index}}</span> 
+                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">                        
                         <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                         
                         <mark-down text="{{articlePrev}}"></mark-down>
                         </div>
