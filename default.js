@@ -1,13 +1,12 @@
-        document.addEventListener('polymer-ready', function() {
-                
+ document.addEventListener('polymer-ready', function() {                
                 var template = document.querySelector('#page-template');
                 var ajax = document.querySelector("core-ajax");                
-                ajax.url = 'articles/articles.json';                                
-                
-                var bb = document.querySelector('#button1');
-                        console.log(bb);
-                                                                                                                       
-                ajax.addEventListener("core-response", function(){                        
+                ajax.url = 'articles/articles.json';                
+                template.handleResponse = function(){
+                    document.querySelector("core-list").updateSize();
+                }                                                                                                       
+                ajax.addEventListener("core-response", function(){
+                    console.log(document.querySelector("core-list"));                        
                     document.querySelector("core-list").data = ajax.response;                                        
                 })
                 

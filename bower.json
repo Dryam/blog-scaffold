@@ -25,6 +25,7 @@
     "core-icon-button": "Polymer/core-icon-button#~0.5.5",
     "core-toolbar": "Polymer/core-toolbar#~0.5.5",
     "core-ajax": "Polymer/core-ajax#~0.5.5",
-    "core-list": "Polymer/core-list#~0.5.5"
+    "core-list": "Polymer/core-list#~0.5.5",
+    "mark-down": "robdodson/mark-down#~0.6.3"
   }
 }

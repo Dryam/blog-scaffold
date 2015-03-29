@@ -16,6 +16,7 @@
     <link rel="import" href="bower_components/core-menu/core-submenu.html">
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="bower_components/core-list/core-list.html">
+    <link rel="import" href="bower_components/mark-down/mark-down.html">
 
 </head>
 
@@ -48,18 +49,25 @@
                 </core-menu>
             </core-header-panel>
             <div tool>{{routeCat}}</div>
-            <div id="myContent">           
-                <core-list data="{{data}}" style="height: 300px;" id="core-list">                
+            
+            <core-list data="{{data}}" style="height: 300px;" id="core-list" scrollTarget="{{myTarget}}">                
                     <template id="list-template">
-                        <div>{{index}} {{model.categorys}} {{model.subCategorys}} {{model.path}}</div>
+                        <div><span hidden>{{index}}</span> 
+                        <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                         
+                        <mark-down text="{{articlePrev}}"></mark-down>
+                        </div>
                     </template>
                 </core-list>
+
+            <div id="myContent">           
+                
             </div>
         </core-scaffold>
 
     </template>
     <core-ajax auto></core-ajax>
     <script src="default.js">
+               
     </script>
 
 
