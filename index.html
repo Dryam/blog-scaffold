@@ -26,11 +26,13 @@
             #core_header_panel {
                 background-color: rgb(255, 255, 255);
             }
-            
+            core-list {
+                height: 100%;
+            }
             #core_toolbar {
                 color: rgb(255, 255, 255);
                 background-color: rgb(79, 125, 201);
-            }
+            }           
             #postsList .item{
                  display: none;
            }
@@ -56,11 +58,12 @@
                 </core-menu>
             </core-header-panel>
             <div tool>{{routeCat}}</div>
-            <div id="postsList" fit>
-            <core-list data="{{data}}" style="height: 100%;" id="core-list" selectionEnabled="false">                
-                    <template id="list-template">
-                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">                        
-                        <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                         
+            <div id="postsList" fit style="overflow:auto;">
+<!-- TODO:write core-list model genetaro like view-source:https://www.polymer-project.org/0.5/components/core-list/demo.html              -->
+            <core-list data="{{data}}" id="core-list">                
+                    <template id="list-template">                    
+                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">                                                
+                        <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                        
                         <mark-down text="{{articlePrev}}"></mark-down>
                         </div>
                     </template>
@@ -72,11 +75,13 @@
         </core-scaffold>
 
     </template>
-    <core-ajax auto></core-ajax>
-    <script src="default.js">
-               
+    <core-ajax id="tmp" auto></core-ajax>
+    <script src="default.js">                   
     </script>
-
+    <script src="blog-scaffold.js">
+    </script>
+    <script src="app.js">
+    </script>
 
 </body>
 

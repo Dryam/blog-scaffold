@@ -1,4 +1,10 @@
- document.addEventListener('polymer-ready', function() {                
+ 
+
+ document.addEventListener('polymer-ready', function() {
+     
+//  attached
+ 
+                         
                 var template = document.querySelector('#page-template');
                 var ajax = document.querySelector("core-ajax");                
                 ajax.url = 'articles/articles.json';                
@@ -29,16 +35,16 @@
                             template.categorys = menu;
 
                             function getCategorys(item) {
-                                for (var i = 0; i < item.categorys.length; i++) {
-                                    if (menuCat[item.categorys[i]] == undefined) {
-                                        menuCat[item.categorys[i]] = {}
+                                for (var i = 0; i < item.category.length; i++) {
+                                    if (menuCat[item.category[i]] == undefined) {
+                                        menuCat[item.category[i]] = {}
 
-                                        for (var j = 0; j < item.subCategorys.length; j++) {
-                                            menuCat[item.categorys[i]][item.subCategorys[j]] = {};
+                                        for (var j = 0; j < item.subCategory.length; j++) {
+                                            menuCat[item.category[i]][item.subCategory[j]] = {};
                                         }
                                     } else {
-                                        for (var s = 0; s < item.subCategorys.length; s++) {
-                                            menuCat[item.categorys[i]][item.subCategorys[s]] = {};
+                                        for (var s = 0; s < item.subCategory.length; s++) {
+                                            menuCat[item.category[i]][item.subCategory[s]] = {};
                                         }
                                     }
                                 }

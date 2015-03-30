@@ -1,18 +1,50 @@
-[{    
-    "categorys": [
-        "First category"
-    ],
-    "subCategorys": [
-        "First Subcategory"
-    ],
-    "path" : "articles/article-test-1/preview.md"
-}, 
-{ 
-    "categorys": [
-        "Second category"
-    ],
-    "subCategorys": [
-        "Second Subcategory"
-    ],
-    "path" : "articles/article-test-2/preview.md"
-}]
+[
+    {
+        "title": "Good day sir 1",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "First category",
+        "subCategory": "First Subcategory"
+    },
+    {
+        "title": "Good day sir 2",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "Second category",
+        "subCategory": "First Subcategory"
+    },
+    {
+        "title": "Good day sir 3",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "Third category",
+        "subCategory": "First Subcategory"
+    },
+    {
+        "title": "Good day sir 1",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "First category",
+        "subCategory": "First Subcategory"
+    },
+    {
+        "title": "Good day sir 2",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "Second category",
+        "subCategory": "First Subcategory"
+    },
+    {
+        "title": "Good day sir 3",
+        "author": "Dima",
+        "timeStamp": "12-01-03",
+        "path": "articles/article-test-2/preview.md",
+        "category": "Third category",
+        "subCategory": "First Subcategory"
+    }
+]
