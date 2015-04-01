@@ -1,6 +1,14 @@
-document.addEventListener('polymer-ready', function() {        
-    blog.loadFile('http://127.0.0.1/polymer_local/projects/blog-scaffold/articles/articles.json', articlesLoaded);
-    function articlesLoaded(articles) {
-    blog.generateData(articles);
-    }    
-});
+var template = document.querySelector('#page-template');
+template.data = [];
+template.addEventListener('template-bound', function() {
+ blog.loadFile('articles/articles.json', articlesLoaded);
+
+    function articlesLoaded(articles) {    
+    blog.generateData(articles, dataGenerated);
+
+    function dataGenerated(data, groups){        
+    blog.updatePosts(data, groups);    
+    }
+    }
+        
+    });

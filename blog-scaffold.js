@@ -1,58 +1,54 @@
-var blog = (function () {            
+//use JSlint
+var blog = (function () {                
     var _private = {                       
         loadFile: function (url, callback) {            
-            var ajax = document.querySelector("#tmp");            
+            var ajax = document.querySelector("core-ajax");                        
             ajax.url = url;                        
             ajax.addEventListener("core-response", function(){                                               
                 callback(ajax.response);
                 });                                                                                                                                                                                                                                                                                                                          
         },
-        generateData: function (rawData){            
+        generateData: function (rawData, callback){            
             var count = rawData.length;
-            var groups = [], data = [], rawGroups =[];
-            function onlyUnique(value, index, self) { 
-                return self.indexOf(value) === index;
-            }                        
+            var groups = [], data = [];
+            var rawGroups = {};            
+  
             for (i=0; i<count;i++){
                 data.push({
-                    index : i,
-                    selected: false,
-                    model : {
+                    index: i,
+                    selected: true,
+                    model:{
                         title: rawData[i].title,
                         author: rawData[i].author,
                         timeStamp: rawData[i].timeStamp,
-                        path : rawData[i].path,
+                        path: rawData[i].path,
                         category: rawData[i].category,
                         subCategory: rawData[i].subCategory
-                    }                                                            
+                    }                                                                                   
                 })
-                rawGroups.push(rawData[i].category);
+                rawGroups[rawData[i].category] ? rawGroups[rawData[i].category]++ : rawGroups[rawData[i].category] = 1;
+   
             }
-            console.log(rawGroups);            
-            groups = rawGroups.filter(onlyUnique);
-// array groups must be like this
-// this.groups = [
-//         {length: 3, data: {label: 'Today'}},
-//         {length: 15, data: {label: 'Yesterday'}},
-//         {length: 30, data: {label: 'Last Week'}},
-//         {length: 150, data: {label: 'Last Month'}},
-//         {length: 150, data: {label: 'Last Quarter'}},
-//         {length: 152, data: {label: 'Last Year'}}
-//       ];
-
-
-            console.log(data);
-            console.log(groups);
-
-        }
+            for (i=0; i<Object.keys(rawGroups).length; i++){
+                   groups.push({length: rawGroups[Object.keys(rawGroups)[i]] , data: {label : Object.keys(rawGroups)[i]} }) 
+            }                                                
+            callback(data, groups);
+        },
+        updatePosts: function(data, groups){
+            document.querySelector("#page-template").groups = groups;            
+            document.querySelector("#page-template").data = data;               
+        }        
     };
     //FACADE
     return {        
         loadFile: function (url, callback) {            
             _private.loadFile(url, callback);                                               
         },
-        generateData: function (rawData) {            
-            _private.generateData(rawData);                                               
-        }
+        generateData: function (rawData, callback) {
+            _private.generateData(rawData, callback)                                             
+        },
+        updatePosts : function(data, groups){
+            _private.updatePosts(data, groups);
+        }          
     }
 }());

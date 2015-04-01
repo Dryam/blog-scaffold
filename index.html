@@ -20,8 +20,8 @@
 
 </head>
 
-<body fullbleed>
-    <template is="auto-binding" id="page-template" class="rock">
+<body unresolved fullbleed>
+    <template is="auto-binding" id="page-template">
         <style>
             #core_header_panel {
                 background-color: rgb(255, 255, 255);
@@ -57,27 +57,23 @@
 
                 </core-menu>
             </core-header-panel>
-            <div tool>{{routeCat}}</div>
-            <div id="postsList" fit style="overflow:auto;">
-<!-- TODO:write core-list model genetaro like view-source:https://www.polymer-project.org/0.5/components/core-list/demo.html              -->
-            <core-list data="{{data}}" id="core-list">                
-                    <template id="list-template">                    
-                        <div class="item {{ {selected: routeCat == undefined && routeSub == undefined || model.categorys == routeCat  && routeSub == undefined  || model.categorys == routeCat &&  model.subCategorys == routeSub}    | tokenList }}">                                                
-                        <core-ajax auto url="{{model.path}}" response="{{articlePrev}}" on-core-response="{{handleResponse}}"></core-ajax>                        
-                        <mark-down text="{{articlePrev}}"></mark-down>
-                        </div>
+            <div tool>{{routeCat}}</div>            
+            <core-list data="{{data}}" groups="{{groups}}" style="height: 300px;">                
+                    <template>                        
+                        <div class="divider" divider>{{groupModel.label}}</div>
+                            <div class="item">                            
+                                <div class="title">{{index}} {{model.model.title}} {{model.model.path}}</div>
+                            </div>                                                                                            
+                        </div>                                                                
                     </template>
-                </core-list>
-            </div>
+                </core-list>            
             <div id="myContent">           
                 
             </div>
         </core-scaffold>
 
     </template>
-    <core-ajax id="tmp" auto></core-ajax>
-    <script src="default.js">                   
-    </script>
+    <core-ajax auto></core-ajax>
     <script src="blog-scaffold.js">
     </script>
     <script src="app.js">
