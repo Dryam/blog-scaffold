@@ -1,0 +1,10 @@
+core-header-panel {
+    background-color: rgb(255, 255, 255);
+}
+core-list {
+    height: 300px;
+}
+core-toolbar {
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 125, 201);
+}

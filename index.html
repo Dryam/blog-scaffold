@@ -17,38 +17,15 @@
     <link rel="import" href="bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="bower_components/core-list/core-list.html">
     <link rel="import" href="bower_components/mark-down/mark-down.html">
-
+    <link rel="stylesheet" href="blog-scaffold.css">
 </head>
 
 <body unresolved fullbleed>
     <template is="auto-binding" id="page-template">
-        <style>
-            #core_header_panel {
-                background-color: rgb(255, 255, 255);
-            }
-            
-            core-list {
-                height: 100%;
-            }
-            
-            #core_toolbar {
-                color: rgb(255, 255, 255);
-                background-color: rgb(79, 125, 201);
-            }
-            
-            #postsList .item {
-                display: none;
-            }
-            
-            #postsList .selected {
-                display: block;
-            }
-            /*TODO: move styles from this file */
-        </style>
         <core-scaffold>
-            <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+            <core-header-panel mode="seamed" navigation flex>
                 <core-toolbar id="core_toolbar">sitename</core-toolbar>
-                <core-menu valueattr="label" selected="" id="core_menu">
+                <core-menu valueattr="label" selected="">
 
                     <template repeat="">
                         <core-submenu label="" valueattr="label" selected="">
@@ -61,7 +38,7 @@
                 </core-menu>
             </core-header-panel>
             <div tool>Selected category</div>
-            <core-list data="{{data}}" groups="{{groups}}" style="height: 300px;">
+            <core-list data="{{data}}" groups="{{groups}}">
                 <template>
                     <div class="divider" divider>{{groupModel.label}}</div>
                     <div class="item">
@@ -73,7 +50,7 @@
                     </div>
                 </template>
             </core-list>
-            <div id="myContent">
+            <div>
 
             </div>
         </core-scaffold>
