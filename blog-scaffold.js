@@ -3,7 +3,8 @@ var blog = (function () {
     var _private = {                       
         loadFile: function (url, callback) {            
             var ajax = document.querySelector("core-ajax");                        
-            ajax.url = url;                        
+            ajax.url = url;
+            ajax.go();                        
             ajax.addEventListener("core-response", function(){                                               
                 callback(ajax.response);
                 });                                                                                                                                                                                                                                                                                                                          
@@ -34,9 +35,9 @@ var blog = (function () {
             }                                                
             callback(data, groups);
         },
-        updatePosts: function(data, groups){
-            document.querySelector("#page-template").groups = groups;            
-            document.querySelector("#page-template").data = data;               
+        updatePosts: function(data, groups){            
+            document.querySelector("core-list").data = data;
+            document.querySelector("core-list").groups = groups;            
         }        
     };
     //FACADE

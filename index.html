@@ -38,25 +38,20 @@
                 </core-menu>
             </core-header-panel>
             <div tool>Selected category</div>
-            <core-list data="{{data}}" groups="{{groups}}">
-                <template>
-                    <div class="divider" divider>{{groupModel.label}}</div>
-                    <div class="item">
-                        <!--                             разобраться с моделью. Смотреть в свойства темлейта                             -->
-                        <div class="title">{{model.model.title}} {{model.model.path}}
-
-                        </div>
-                    </div>
-                    </div>
-                </template>
-            </core-list>
-            <div>
-
+            <div class="content" flex>
+                <core-list flex height="30">
+                    <template>
+                        <div divider>{{groupModel.label}}</div>
+                        <div class="item">
+                            <core-ajax url="{{model.model.path}}" auto response="{{response}}" ></core-ajax> 
+                             <mark-down text="{{response}}"></mark-down>
+                        </div>                                                                
+                    </template>
+                </core-list>
             </div>
+            <core-ajax></core-ajax>
         </core-scaffold>
-
     </template>
-    <core-ajax auto></core-ajax>
     <script src="blog-scaffold.js">
     </script>
     <script src="app.js">

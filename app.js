@@ -1,14 +1,14 @@
 var template = document.querySelector('#page-template');
-template.data = [];
+
 template.addEventListener('template-bound', function() {
- blog.loadFile('articles/articles.json', articlesLoaded);
+    blog.loadFile('articles/articles.json', articlesLoaded);
 
-    function articlesLoaded(articles) {    
-    blog.generateData(articles, dataGenerated);
+    function articlesLoaded(articles) {
+        blog.generateData(articles, dataGenerated);
 
-    function dataGenerated(data, groups){        
-    blog.updatePosts(data, groups);    
+        function dataGenerated(data, groups) {
+            blog.updatePosts(data, groups);
+        }
     }
-    }
-        
-    });
+
+});
