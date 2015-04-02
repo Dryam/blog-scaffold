@@ -26,49 +26,55 @@
             #core_header_panel {
                 background-color: rgb(255, 255, 255);
             }
+            
             core-list {
                 height: 100%;
             }
+            
             #core_toolbar {
                 color: rgb(255, 255, 255);
                 background-color: rgb(79, 125, 201);
-            }           
-            #postsList .item{
-                 display: none;
-           }
-              #postsList .selected{
+            }
+            
+            #postsList .item {
+                display: none;
+            }
+            
+            #postsList .selected {
                 display: block;
-
-              }
+            }
             /*TODO: move styles from this file */
         </style>
-        <core-scaffold>        
+        <core-scaffold>
             <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
                 <core-toolbar id="core_toolbar">sitename</core-toolbar>
-                <core-menu valueattr="label" selected="{{routeCat}}" id="core_menu">
+                <core-menu valueattr="label" selected="" id="core_menu">
 
-                    <template repeat="{{category in categorys}}">
-                        <core-submenu label="{{category.name}}" valueattr="label" selected="{{routeSub}}" on-tap={{handleResponse}}>
-                            <template repeat="{{subcategory in  category.subcategorys}}">
-                                <core-item on-tap={{handleResponse}} label="{{subcategory}}"></core-item>
+                    <template repeat="">
+                        <core-submenu label="" valueattr="label" selected="">
+                            <template repeat="">
+                                <core-item label=""></core-item>
                             </template>
                         </core-submenu>
                     </template>
 
                 </core-menu>
             </core-header-panel>
-            <div tool>{{routeCat}}</div>            
-            <core-list data="{{data}}" groups="{{groups}}" style="height: 300px;">                
-                    <template>                        
-                        <div class="divider" divider>{{groupModel.label}}</div>
-                            <div class="item">                            
-                                <div class="title">{{index}} {{model.model.title}} {{model.model.path}}</div>
-                            </div>                                                                                            
-                        </div>                                                                
-                    </template>
-                </core-list>            
-            <div id="myContent">           
-                
+            <div tool>Selected category</div>
+            <core-list data="{{data}}" groups="{{groups}}" style="height: 300px;">
+                <template>
+                    <div class="divider" divider>{{groupModel.label}}</div>
+                    <div class="item">
+                        <!--                             разобраться с моделью. Смотреть в свойства темлейта                             -->
+                        <div class="title">{{model.model.title}} {{model.model.path}}
+
+                        </div>
+                    </div>
+                    </div>
+                </template>
+            </core-list>
+            <div id="myContent">
+
             </div>
         </core-scaffold>
 
