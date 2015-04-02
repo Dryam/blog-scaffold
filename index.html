@@ -38,11 +38,11 @@
                 </core-menu>
             </core-header-panel>
             <div tool>Selected category</div>
-            <div class="content" flex>
-                <core-list flex height="30">
+            <div class="content" fit>
+                <core-list data={{data}} groups={{groups}} flex height="114">
                     <template>
                         <div divider>{{groupModel.label}}</div>
-                        <div class="item">
+                        <div class="item" data-index={{index}}>
                             <core-ajax url="{{model.model.path}}" auto response="{{response}}" ></core-ajax> 
                              <mark-down text="{{response}}"></mark-down>
                         </div>                                                                

@@ -36,8 +36,8 @@ var blog = (function () {
             callback(data, groups);
         },
         updatePosts: function(data, groups){            
-            document.querySelector("core-list").data = data;
-            document.querySelector("core-list").groups = groups;            
+            template.data = data;
+            template.groups = groups;            
         }        
     };
     //FACADE
